@@ -1,0 +1,676 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/job/create": {
+            "post": {
+                "description": "Creates and schedule a job",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "job"
+                ],
+                "summary": "Creates and schedule a job",
+                "parameters": [
+                    {
+                        "description": "input",
+                        "name": "input",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.CreateJobRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.CreateJobResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/job/delete": {
+            "post": {
+                "description": "Delete a job by id",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "job"
+                ],
+                "summary": "Delete a job by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "some id",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.DeleteJobResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/job/get": {
+            "get": {
+                "description": "Get a job by id",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "job"
+                ],
+                "summary": "Get a job by id",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "some id",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.Job"
+                        }
+                    }
+                }
+            }
+        },
+        "/job/list": {
+            "get": {
+                "description": "list jobs by type",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "job"
+                ],
+                "summary": "list jobs by type",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Size",
+                        "name": "size",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.ListJobsResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/job/update": {
+            "post": {
+                "description": "Updates and reschedule a job",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "job"
+                ],
+                "summary": "Updates and reschedule a job",
+                "parameters": [
+                    {
+                        "description": "input",
+                        "name": "input",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.UpdateJobRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.UpdateJobResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/ping": {
+            "get": {
+                "description": "do ping",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "ping"
+                ],
+                "summary": "ping",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/report/list": {
+            "get": {
+                "description": "retrieve the reports",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "report"
+                ],
+                "summary": "Get the list of reports",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Size",
+                        "name": "size",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.ListReportResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/create": {
+            "post": {
+                "description": "Register a user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "Register a user",
+                "parameters": [
+                    {
+                        "description": "input",
+                        "name": "input",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.CreateUserRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.CreateUserResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/get": {
+            "get": {
+                "description": "Get user",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get user",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.GetUserResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/list": {
+            "get": {
+                "description": "retrieve the list of users",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "Get the list of users",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Page",
+                        "name": "page",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "Size",
+                        "name": "size",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.ListUsersResponse"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/login": {
+            "post": {
+                "description": "login a user",
+                "consumes": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "login a user",
+                "parameters": [
+                    {
+                        "description": "input",
+                        "name": "input",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.LoginUserRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.LoginUserResponse"
+                        },
+                        "headers": {
+                            "Authorization": {
+                                "type": "string",
+                                "description": "Access-Token"
+                            },
+                            "X-Refresh-Token": {
+                                "type": "string",
+                                "description": "Refresh-Token"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/logout": {
+            "post": {
+                "description": "logout user",
+                "tags": [
+                    "user"
+                ],
+                "summary": "logout user",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.LogOutResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/refresh_token": {
+            "post": {
+                "description": "refresh access token",
+                "tags": [
+                    "user"
+                ],
+                "summary": "refresh access token",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.RefreshTokenResponse"
+                        },
+                        "headers": {
+                            "Authorization": {
+                                "type": "string",
+                                "description": "Access-Token"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.CreateJobRequest": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "jobData": {
+                    "type": "string"
+                },
+                "jobType": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "scheduleTime": {
+                    "type": "string"
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.CreateJobResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.CreateUserRequest": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "integer"
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.CreateUserResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.DeleteJobResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.GetUserResponse": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.Job": {
+            "type": "object",
+            "properties": {
+                "createdTime": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "jobData": {
+                    "type": "string"
+                },
+                "jobStatus": {
+                    "type": "integer"
+                },
+                "jobType": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "scheduleTime": {
+                    "type": "string"
+                },
+                "updatedTime": {
+                    "type": "string"
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.ListJobsResponse": {
+            "type": "object",
+            "properties": {
+                "hasMore": {
+                    "type": "boolean"
+                },
+                "jobs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.Job"
+                    }
+                },
+                "page": {
+                    "type": "integer"
+                },
+                "size": {
+                    "type": "integer"
+                },
+                "totalCount": {
+                    "type": "integer"
+                },
+                "totalPages": {
+                    "type": "integer"
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.ListReportResponse": {
+            "type": "object",
+            "properties": {
+                "hasMore": {
+                    "type": "boolean"
+                },
+                "page": {
+                    "type": "integer"
+                },
+                "reports": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.Report"
+                    }
+                },
+                "size": {
+                    "type": "integer"
+                },
+                "totalCount": {
+                    "type": "integer"
+                },
+                "totalPages": {
+                    "type": "integer"
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.ListUsersResponse": {
+            "type": "object",
+            "properties": {
+                "hasMore": {
+                    "type": "boolean"
+                },
+                "page": {
+                    "type": "integer"
+                },
+                "size": {
+                    "type": "integer"
+                },
+                "totalCount": {
+                    "type": "integer"
+                },
+                "totalPages": {
+                    "type": "integer"
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.GetUserResponse"
+                    }
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.LogOutResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.LoginUserRequest": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.LoginUserResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.RefreshTokenResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.Report": {
+            "type": "object",
+            "properties": {
+                "createdTime": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "reportData": {
+                    "type": "string"
+                },
+                "topic": {
+                    "type": "string"
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.UpdateJobRequest": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "jobData": {
+                    "type": "string"
+                },
+                "jobType": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "scheduleTime": {
+                    "type": "string"
+                }
+            }
+        },
+        "github_com_mikemonzo_play-microservices_api-gateway_api-gateway-service_internal_models.UpdateJobResponse": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
