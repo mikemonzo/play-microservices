@@ -1,0 +1,96 @@
+{
+    "mappings": [
+      {
+        "request": {
+          "method": "POST",
+          "urlPattern": "/api/v1/job/create",
+          "bodyPatterns": [
+            {
+              "equalToJson": {
+                "Name": "job1"
+              }
+            }
+          ],
+          "headers": {
+            "Authorization": {
+              "equalTo": "Admin-access-token"
+            }
+          }
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "body": "{\"Id\": \"job1_id\"}"
+        }
+      },
+      {
+        "request": {
+          "method": "GET",
+          "urlPattern": "/api/v1/job/list\\?page=([^&]+)&size=([^&]+)",
+          "queryParameters": {
+            "page": {
+              "matches": "^[1-9][0-9]*$"
+            },
+            "size": {
+              "matches": "^[1-9][0-9]*$"
+            }
+          },
+          "headers":{
+            "Cookie": {
+              "contains": "Authorization=Admin-access-token"
+            }
+          }
+        },
+        "response": {
+          "status": 200,
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "jsonBody": {
+            "TotalCount": 4,
+            "TotalPages": 1,
+            "Page": 1,
+            "Size": 4,
+            "HasMore": false,
+            "Jobs": [
+              {
+                "Id": "job1_id",
+                "Name": "job1",
+                "Description": "send email to example.com",
+                "ScheduleTime": "2023-06-30T16:50:46.3042086Z",
+                "CreatedTime": "2023-06-30T16:50:46.3042086Z",
+                "UpdatedTime": "2023-06-30T16:50:46.3042086Z",
+                "JobStatus": 1,
+                "JobType": 0,
+                "JobData":"{\"SourceAddress\":\"example@example.com\",\"DestinationAddress\":\"example@example.com\",\"Subject\":\"messageFromexample@example.comcontactform\",\"Message\":\"Thisisaproductiontest!!!!\"}"
+              },
+              {
+                "Id": "job2_id",
+                "Name": "job2",
+                "Description": "send email to example.com",
+                "ScheduleTime": "2023-06-30T16:50:46.3042086Z",
+                "CreatedTime": "2023-06-30T16:50:46.3042086Z",
+                "UpdatedTime": "2023-06-30T16:50:46.3042086Z",
+                "JobStatus": 1,
+                "JobType": 0,
+                "JobData": "{\"SourceAddress\":\"example@example.com\",\"DestinationAddress\":\"example@example.com\",\"Subject\":\"messageFromexample@example.comcontactform\",\"Message\":\"Thisisaproductiontest!!!!\"}"
+              },
+              {
+                "Id": "job3_id",
+                "Name": "job3",
+                "Description": "send email to example.com",
+                "ScheduleTime": "2023-06-30T16:50:46.3042086Z",
+                "CreatedTime": "2023-06-30T16:50:46.3042086Z",
+                "UpdatedTime": "2023-06-30T16:50:46.3042086Z",
+                "JobStatus": 1,
+                "JobType": 0,
+                "JobData": "{\"SourceAddress\":\"example@example.com\",\"DestinationAddress\":\"example@example.com\",\"Subject\":\"messageFromexample@example.comcontactform\",\"Message\":\"Thisisaproductiontest!!!!\"}"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
